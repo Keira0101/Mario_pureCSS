@@ -1,0 +1,467 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+img{
+    display: block;
+    width: 100%;
+}
+body{
+    line-height: 1;
+    font-family: 'Catamaran', sans-serif;
+    color: white;
+}
+.btn{
+    display: inline-block;
+    padding: 1.25rem 2.5rem;
+    margin-bottom: 2rem;
+    background-color: white;
+    color: #000;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.25rem;
+    border-radius: 2.5rem;
+    letter-spacing: 0.05rem;
+    border: transparent 2px solid;
+    /*有透明邊框 hover才不會動*/
+}
+
+.btn:hover{
+    color: white;
+    background-color: black;
+    border: white 2px solid;
+    transition: all .35s;
+
+}
+
+
+
+/*banner*/
+#banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(./images/bg-pattern-logos.png),linear-gradient(#e70112 16%, #b20722 76%);
+    overflow: hidden;
+    position: relative;
+}
+
+#banner .row{
+    display: flex;
+    width: 80%; 
+
+}
+
+#banner::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    background-color: #e70112;
+    z-index: 1;
+    clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+    /*(X,Y)左上角,右上角,右下角,左下角*/
+}
+
+/*main區*/
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title1{
+    font-size: 3.5rem;
+    margin-bottom: 2vh;
+}
+
+.title2{
+    font-size: 1.6rem;
+    letter-spacing: .05rem;
+    margin: 1rem 0;
+}
+
+.point_t, .point_b{
+    position: absolute;
+    width: 100%;
+}
+
+
+.point_t::before, .point_t::after,
+.point_b::before, .point_b::after{
+    content: "";
+    background:linear-gradient(145deg, #f6f6f6, #cfcfcf);
+    box-shadow: 1px 1px 10px #828282, 1px 1px 10px #000;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.point_t{
+    top: 25px;
+}
+
+.point_t::before{
+    content: "";
+    top: 0px;
+    left: 15px;
+
+}
+
+.point_t::after{
+    content: "";
+    top: 0px;
+    right: 15px;
+
+}
+
+.point_b {
+    bottom: 25px;
+}
+
+.point_b::before{
+    content: "";
+    bottom: 0px;
+    right: 15px;
+
+}
+
+.point_b::after{
+    content: "";
+    bottom: 0px;
+    left: 15px;
+
+}
+
+
+/*news區*/
+
+#news{
+    background-color: #e70112;
+}
+
+.list-box{
+    display: flex;
+    width: 75%;
+}
+
+.card-item{
+    flex: 1;
+    margin: 30px;
+    padding: 25px 25px 4rem;
+    background-image: repeating-linear-gradient(-45deg, #302f2f,#979595 6px, #727070 0, #2a2929 12px);
+    border-radius: 15px;
+    position: relative;
+    transition: 1.5s;
+
+}
+
+#news .role{
+    position: absolute;
+    width: 62%;
+    top: -5vh;
+    left:18%;
+}
+
+#news .date{
+    font-size: 1.2rem;
+    margin-top: 1.5vh;
+}
+
+#news .content{
+    font-size: 1.1rem;
+    line-height: 1.3rem;
+    letter-spacing: .05rem;
+    /*多行省略*/
+    overflow: hidden;
+    text-overflow: ellipsis; /*文字超過的時候出現省略號*/
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    position: absolute;
+    bottom: 6rem;
+    left: 25px;
+    transition: 1.5s;
+    opacity: 0;
+    
+}
+
+#news .scenes{
+    box-shadow:0 0 40px -10px black;
+    /*X Y 模糊 延展 顏色*/
+    transform-origin: bottom;
+
+}
+
+#news .card-item:hover .scenes{
+    transform: perspective(1000px) rotateX(30deg) skewX(-20deg);
+    /*透視 旋轉 傾斜*/
+    
+
+}
+#news .card-item:hover .role{
+    transform: scale(1.2);/*縮放*/
+
+}
+
+#news .card-item:hover .content{
+    transform: translateY(4.5rem);
+    opacity: 1;
+}
+
+#news .role img{
+    object-fit: contain;  
+}
+
+
+/*文案區*/
+
+#banner .col:first-child{
+    width: 29rem;
+}
+#banner h2 span{
+    display: block;
+}
+#banner h2 span:first-child{
+    font-size: 1.75rem;
+}
+
+#banner h2 span:last-child{
+    font-size: 11rem;
+    font-weight: 900;
+}
+
+#banner p{
+    font-size: 1.3rem;
+    line-height: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/*圖片區*/
+
+#banner picture{
+    position: absolute;
+}
+
+/*banner-1*/
+.mario1{
+    width: 35%;
+    animation: mario1 12s both ease-in-out infinite;
+/*ease-in-out 速度漸變*/
+}
+
+@keyframes mario1 {
+    0%{top:100vh; right: 20%;opacity:0;}
+    10%{top:-5vh; right: 20%;opacity:1}
+    20%{top:-5vh; right: 20%;opacity:1}
+    30%{top:100vh; right: 20%;opacity:0;}
+    100%{top:100vh; right: 20%;opacity:0;}
+    /* 總時長 (12s)的百分比 */
+}
+
+.luigi{
+    width: 20%;
+    animation: luigi 12s .35s both ease-in-out infinite;
+/*秒數後的第二個數字是delay*/
+}
+
+@keyframes luigi {
+    0%{top:100vh; right: 5%;opacity:0;}
+    10%{top:20vh; right: 5%;opacity:1;}
+    20%{top:20vh; right: 5%;opacity:1;}
+    30%{top:100vh; right: 5%;opacity:0;}
+    100%{top:100vh; right: 5%;opacity:0;}
+    
+}
+
+.brick{
+    width: 40%;
+    animation: brick 12s .45s both ease-in-out infinite;
+}
+
+@keyframes brick {
+    0%{top:10vh; right: -100%;opacity:0;}
+    10%{top:10vh; right:-4%;opacity:1;}
+    20%{top:10vh; right: -4%;opacity:1;}
+    30%{top:10vh; right:-100%;opacity:0;}
+    100%{top:10vh; right: -100%;opacity:0;}
+    
+}
+
+/*banner-2*/
+.mario2{
+    width: 32%;
+    animation: mario2 12s 4s both ease-in-out infinite;
+
+}
+
+@keyframes mario2 {
+    0%{top:100vh; right: 25%;opacity:0;}
+    10%{top:10vh; right: 25%;opacity:1}
+    20%{top:10vh; right: 25%;opacity:1}
+    30%{top:100vh; right: 25%;opacity:0;}
+    100%{top:100vh; right: 25%;opacity:0;}
+    
+}
+
+.peach{
+    width: 17%;
+    animation: peach 12s 4.35s both ease-in-out infinite;
+
+}
+
+@keyframes peach {
+    0%{top:100vh; right: 17%;opacity:0;}
+    10%{top:25vh; right: 17%;opacity:1;}
+    20%{top:25vh; right: 17%;opacity:1;}
+    30%{top:100vh; right: 17%;opacity:0;}
+    100%{top:100vh; right: 17%;opacity:0;}
+    
+}
+
+.pipe{
+    width: 20%;
+    animation: pipe 12s 4.45s both ease-in-out infinite;
+
+}
+
+@keyframes pipe {
+    0%{top:100vh; right: 2%;opacity:0;}
+    10%{top:5vh; right: 2%;opacity:1;}
+    20%{top:5vh; right: 2%;opacity:1;}
+    30%{top:100vh; right: 2%;opacity:0;}    
+    100%{top:100vh; right: 2%;opacity:0;}
+    
+}
+
+.mario3{
+    width: 41%;
+    animation: mario3 12s 8s both ease-in-out infinite;
+
+}
+
+@keyframes mario3 {
+    0%{top:100vh; right: 15%;opacity:0;}
+    10%{top:15vh; right: 15%;opacity:1;}
+    20%{top:15vh; right: 15%;opacity:1;}
+    30%{top:100vh; right: 15%;opacity:0;}   
+    100%{top:100vh; right: 15%;opacity:0;}
+    
+}
+
+.toad{
+    width: 12%;
+    animation: toad 12s 8.35s both ease-in-out infinite;
+
+}
+
+@keyframes toad{
+    0%{top:100vh; right: 14%;opacity:0;}
+    10%{top:40vh; right: 14%;opacity:1;}
+    20%{top:40vh; right: 14%;opacity:1;}
+    30%{top:100vh; right: 14%;opacity:0;} 
+    100%{top:100vh; right: 14%;opacity:0;}
+    
+}
+
+.star{
+    width: 22%;
+    animation: star 12s 8.45s both ease-in-out infinite;
+
+}
+
+@keyframes star{
+    0%{top:100vh; right: 2%;opacity:0;}
+    10%{top:15vh; right: 2%;opacity:1;}
+    20%{top:15vh; right: 2%;opacity:1;}
+    30%{top:100vh; right: 2%;opacity:0;} 
+    100%{top:100vh; right: 2%;opacity:0;}
+    
+}
+
+/*products區*/
+
+#product{
+    padding-bottom: 250px;
+    background-image: url(./images/bg-pattern-logos.png),linear-gradient(#bc00b7 16%, #23b2ff 76%);
+}
+
+.wavy{
+    width: 100%;
+}
+
+#product .list-box{
+    margin-top: 5vh;
+}
+
+#product .card-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+
+#product .card-item>*{
+    transform: translateZ(50px);
+}
+
+#product .role{
+    position: relative;
+    width: 100%;
+    height: 26vh;
+    transform: translateZ(50px);
+}
+
+#product .role img{
+    width: 100%;
+    position: absolute;
+    top: -10vh;
+    left: -4%;
+    
+}
+
+#product .btn{
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin: 20px 0;
+    box-shadow: 0 0 20px #000;
+}
+
+#product p{
+    font-size: 1.1rem;
+    line-height: 1.3rem;
+    letter-spacing: .05rem;
+}
+footer{
+    position: relative;
+    height: 200px;
+    background-color: #e70112;
+}
+
+footer::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -200px;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    background-color: #e70112;
+    z-index: 1;
+    clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+    /*(X,Y)左上角,右上角,右下角,左下角*/
+}
+
+footer p{
+    text-align: center;
+}
